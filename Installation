@@ -1,0 +1,53 @@
+Tipp: Du kannst für alle Dateinamen und Verzeichnisse die automatische Vervollständigung mithilfe der Tab-Taste nutzen,
+sodass Sie nicht die kompletten Datei- oder Verzeichnisnamen manuell eintippen müssen.
+
+1. Laden dir sich Putty oder Cmder herunter und installieren diese.
+
+2. Verbinde dich mithilfe von PuTTY oder Cmder via SSH mit Ihrem Root- oder vServer
+[PuTTy]: Öffne PuTTY und gebe im Textfeld "Host Name (or IP address)" die Domain oder IP-Adresse deines Servers ein. 
+Klicke anschließend unten auf "OK".
+
+[Cmder]: Öffne Cmder und gebe ein: SSH root@deineip/domain. Drücke enter und gebe das Passwort ein.
+
+3. Aktualisiere deinen server mit dem befehl: "apt update" und "apt upgrade -y"
+
+4. Fügen sie einen neuen Benutzer Hinzu. In meinen Fall: "adduser --disabled-login ts3"
+(Du kannst auch einen anderen Namen benutzen. Wir deaktivieren also das einloggen mit Passwort).
+
+5.Bestätige alle Abfragen wie Name, Telefonnummer etc. mit enter um diese zu Überspringen.
+
+6. Wir wechseln nun zu unserem Benutzer "Ts3" (in meinem falle) mit dem Befehl: "su ts3"
+
+7. Wir landen dann im Root verzeichnis von dem Benutzer. Wir müssen diesen verllassen und geben ein: "cd"
+
+8. Wir brauchen nun den Link der Aktuellen Version des Ts3Servers. Diese Holen wir von der Offiziellen seite:
+"https://www.teamspeak.com/en/downloads/#server"
+Aktueller Link: "https://files.teamspeak-services.com/releases/server/3.9.1/teamspeak3-server_linux_amd64-3.9.1.tar.bz2"
+
+9. Nachdem wir den Download abgeschlossen haben, müssen wir die Datei entpacken. Dies machen wir mit:
+"tar xfvj teamspeak3-server_linux_amd64-3.9.1.tar.bz2" (INFO: Wenn dies nicht funktioniert: "apt-get install bzip2")
+
+10. Wenn wir die Zip-Datei entpackt haben, Löschen wir diese mit: "rm teamspeak3-server_linux_amd64-3.9.1.tar.bz2"
+(WICHTIG! NICHT DEN ORDNER LÖSCHEN SONDERN DIE ".bz2" Datei!)
+
+11. Wir wechseln nun in das Verzeichnis mit: "cd teamspeak3-server_linux_amd64"
+
+12. Bevor wir den Server starten können, müssen wir die Lizenz akzeptieren. Dies machen wir mit dem Befehl: 
+"touch .ts3server_license_accepted"
+
+13. Nun können wir den Ts3-Server starten. Der Startbefehl ist immer: "./ts3server_startscript.sh start"
+Du kannst auch den Server Stoppen. Statt "./ts3server_startscript.sh start" -> "./ts3server_startscript.sh stop"
+
+14. Dir wird nun der Serveradmin+passwort und der Berechtigungsschlüssel angezeigt. Diese UNBEDINGT in einer 
+Text datei speichern!
+
+15. Der Ts3-Server ist nun einsatzbereit und du kannst ihn betretten!
+
+16. Wenn der Server mal down geht und sie den Ts3-Server neu starten müssen:
+Auf den Server connecten via PuTTy oder Cmder
+su ts3
+cd teamspeak3-server_linux_amd64
+./ts3server_startscript.sh start
+
+
+Lasst ein Abo da und Aktiviert die Glocke! Ich bin offen für Video vorschläge!
